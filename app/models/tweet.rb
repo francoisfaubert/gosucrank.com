@@ -33,7 +33,7 @@ class Tweet < ActiveRecord::Base
 
             # Fetch the remote list and create them if they do not exist in our DB
             Tweet.client::user_timeline(USER_NICKNAME, Tweet.clientoptions).each do |remoteTweet|
-                if (Tweet.where(:twitter_post_id => remoteTweet::id).first.nil?)
+                if (Tweet.where(:twitter_post_id => remoteTweet::id.to_s).first.nil?)
                     tweet = Tweet.create
                     tweet.text  = remoteTweet::text
                     tweet.twitter_post_id = remoteTweet::id
