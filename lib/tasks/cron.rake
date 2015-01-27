@@ -8,6 +8,10 @@ task :cron => :environment do
     TwitchStream.fetchRemoteList
     puts " "
 
+    puts "Checking for new youtube videos..."
+    Youtube.fetchRemoteList
+    puts " "
+
     puts "Done."
 
 end
