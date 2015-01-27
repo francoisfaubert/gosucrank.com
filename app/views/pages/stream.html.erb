@@ -18,9 +18,7 @@
                 <% if !@twitch.nil? %>
                     <div class="col-md-8">
                         <article class="<% if @twitch.is_live %>live<% end %>">
-                            <% if @twitch.is_live %>
-                                <iframe class="stream-element" src="http://www.twitch.tv/crank/embed"></iframe>
-                            <% end %>
+                            <iframe class="stream-element" src="http://www.twitch.tv/crank/embed"></iframe>
                         </article>
                     </div>
                     <div class="col-md-4">
