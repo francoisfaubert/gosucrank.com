@@ -1,0 +1,218 @@
+
+/* Homepage */
+body.index {
+
+    section {
+        background:#fff;
+        border-top:1px solid #fff;
+        border-bottom:1px solid #aaa;
+        padding:50px 0;
+        min-height: 300px;
+
+        header {
+            margin:0 30px;
+
+            h2 {
+                margin:0 0 1em;
+            }
+
+            .cta{
+                display:block;
+                float: right;
+            }
+        }
+    }
+
+    .hero {
+        background:#000;
+        position:relative;
+        height:600px;
+        border-bottom:1px solid #000;
+        border-top:1px solid #444;
+        overflow:hidden;
+        padding:0;
+        text-shadow:1px 0 0 #000;
+
+        #hero-yt-player, .live-stream  {
+            width:150%;
+            height:150%;
+            margin-left:-10%;
+            margin-top:-2%;
+        }
+
+        .status {
+            position:absolute;
+            bottom:30px;
+            right:30px;
+            font-size: 1.2em;
+            text-align:right;
+
+            em {
+                display:block;
+                font-size: 1.4em;
+                font-style: normal;
+                font-weight: bold;
+            }
+
+            .cta {
+                display:block;
+            }
+
+            &.live {
+                em {
+                    box-shadow: 0 3px 2px rgba(0,0,0,.2);
+                    background:#fff;
+                    padding:15px;
+                    color:#ff0000;
+                    text-transform: uppercase;
+                    a {
+                        color:#ff0000;
+                    }
+                }
+            }
+
+            &.highlight {
+                color:#ddd;
+                em {
+                    color:#eee;
+                }
+            }
+        }
+
+        .player-intro {
+            color:#fff;
+            position:absolute;
+            bottom:0;
+            left:0;
+            height:100%;
+            width: 100%;
+            padding:50px 0 0 30px;
+
+            img {
+                height:100%;
+                width:100%;
+                max-width:451px;
+                position:absolute;
+                bottom:0;
+                left:0;
+            }
+
+            h1, h2, p {
+                position:relative;
+                margin-bottom:5px;
+                text-shadow:0 0 10px #000;
+            }
+
+            h1 {
+                font-size:2.5em;
+                color:#fff;
+            }
+
+            h2 {
+                font-size:1.8em;
+            }
+
+            p {
+                font-size:1.2em;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .donate {
+        min-height: 0;
+        padding:30px 15px;
+        border-bottom:1px solid #aaa;
+        h3 {
+            margin:0 0 15px;
+        }
+    }
+
+    .tweet-list {
+        background:#efefef url(image-path('bg-tweets.png')) no-repeat bottom right;
+        background-size:auto 100%;
+
+        article {
+            background:#fff;
+            box-shadow: 0 3px 2px rgba(0,0,0,.2);
+            border:1px solid #eee;
+            font-size:1.1em;
+            line-height: 1.5;
+            padding:15px;
+            min-height:150px;
+            margin:15px 0 15px 15px;
+        }
+    }
+
+    .achievements {
+        border-bottom:1px solid #aaa;
+
+        .col {
+            border-left:1px solid #fff;
+            border-right:1px solid #aaa;
+            min-height: 250px;
+
+            &.first-child {
+                border-left:none;
+            }
+
+            &.last-child {
+                border-right:none;
+            }
+        }
+
+        h3 {
+            margin:15px 30px;
+        }
+    }
+
+    .equipment {
+        background:#efefef url(image-path('bg-hardware.png')) no-repeat bottom left;
+        background-size:auto 100%;
+    }
+}
+
+/* Video Highlights */
+body.videohighlights {
+    article {
+        cursor: pointer;
+        img {
+            width:100%;
+        }
+        p {
+            font-size:1.1em;
+            text-align:center;
+        }
+    }
+    .video-list {
+        .cta {
+            margin-top:90px;
+            display:block;
+            text-align:center;
+        }
+    }
+}
+
+/* Stream schedule */
+body.schedule {
+    iframe {
+        width:100%;
+        height:800px;
+        border:none;
+    }
+    .timezone-selector {
+        text-align:right;
+        select {
+            margin:1em 0;
+        }
+    }
+}
+
+/* Stream box */
+body.stream {
+    iframe {
+        width:100%;
+        height:800px;
+        border:0;
+    }
+}

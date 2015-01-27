@@ -1,0 +1,103 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require font-awesome
+ *= require magnific-popup
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+body {
+    background:#efefef;
+    text-shadow:-1px 0 0 #fff;
+}
+
+h1, h2, h3 {
+    font-family: 'Archivo Black', arial, sans-serif;
+    color:#333;
+    font-weight: normal;
+    margin:0;
+}
+
+
+.navbar {
+    border-radius: 0;
+    border-bottom:1px solid #999;
+    margin-bottom:0;
+}
+
+.navbar-default {
+    h1 {
+        font-size:20px;
+        margin-top:-2px;
+    }
+
+    .live {
+        background:#fff;
+        padding:5px;
+        color:#ff0000;
+        text-transform: uppercase;
+        color:#ff0000;
+        font-weight:bold;
+        font-size:12px;
+        border:1px solid #ddd;
+    }
+}
+
+.sponsors {
+    min-height: 0;
+    text-align:center;
+    border-top:1px solid #000;
+    border-bottom:none;
+    box-shadow:0 1px 5px rgba(0,0,0,0.5);
+    background:#111;
+    padding: 20px;
+    position:relative;
+
+    img {
+        width:100%;
+        max-width:220px;
+    }
+}
+
+footer {
+    min-height: 0;
+    border-top:1px solid #000;
+    border-bottom:none;
+    background:#111;
+    padding: 50px;
+    text-shadow:none;
+    color:#444;
+}
+
+.cta-wrapper {
+    .cta {
+        display:block;
+        float:right;
+        clear:both;
+        margin: 1em;
+    }
+}
+
+.page {
+    margin-bottom:30px;
+    header {
+        background:#fff;
+        border-bottom:1px solid #dedede;
+        margin:0 0 30px;
+        padding:30px 20px 20px;
+    }
+}

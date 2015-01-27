@@ -1,0 +1,159 @@
+<section class="hero">
+    <% if @twitch.is_live %>
+        <iframe class="live-stream" src="http://www.twitch.tv/crank/embed"></iframe>
+    <% elsif !@youtube.nil? %>
+        <div id="hero-yt-player" data-video-url="<%= @youtube.url %>" class="bg-stream yt"></div>
+    <% end %>
+
+    <div class="player-intro">
+        <%= image_tag("hero-crank.png") %>
+        <h1>Jaewon 'CranK' Choi</h1>
+        <h2><a href="http://www.axiomesports.com">Axiom eSports</a></h2>
+        <p>Streaming on the KR/NA/EU ladder</p>
+    </div>
+
+    <% if @twitch.is_live %>
+        <div class="status live">
+            <em><a href="/stream/">Live</a></em>
+        </div>
+    <% elsif !@youtube.nil? %>
+        <div class="status highlight">
+            Video highlight
+            <em><%= @youtube.title %></em>
+            <a class="cta" href="/videohighlights/">View recent highlights</a>
+        </div>
+    <% end %>
+</section>
+
+<%= render "sponsors" %>
+
+<section class="donate">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="coaching">
+                    <h3>Coaching</h3>
+                    <p>You can get coached by me, who was named <strong>Best Coach in 2013 GSTL Season 2</strong>, for <strong>$35/hour</strong>! If you subscribe to me <a href="http://www.twitch.tv/crank/">Twitch channel</a> you'll get coaching for <strong>$30</strong>!</p>
+                    <p>If you're interested in coaching, message me via <a href="http://www.twitch.tv/crank/">Twitch</a>.</p>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="donations">
+                    <h3>Donations</h3>
+                    <p>Subscribe to my <a href="http://www.twitch.tv/crank/">Twitch channel</a> or consider making a donation directly to <a href="https://twitchalerts.com/donate/Crank">me</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tweet-list">
+    <header>
+        <a class="cta" href="https://twitter.com/axcrank"><i class="fa fa-twitter"></i></a>
+        <h2>Recent Tweets</h2>
+    </header>
+    <div class="container-fluid">
+        <% if @tweets.length > 0 %>
+            <% @tweets.each_with_index do |tweet, index| %>
+
+                <% if index % 4 === 0 %>
+                    <div class="row">
+                <% end %>
+
+                    <div class="col-md-3">
+                        <article><%= auto_link(tweet.parsed_text) %></article>
+                    </div>
+
+                <% if (index+1) % 4 === 0 || index+1 >= @tweets.length  %>
+                    </div>
+                <% end %>
+            <% end %>
+        <% else %>
+           <p>No tweets could be loaded.</p>
+        <% end %>
+    </div>
+</section>
+
+<section class="achievements">
+    <header>
+        <h2>Achievements</h2>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col col-sm-4">
+                <article>
+                    <h3>2014</h3>
+                    <ul>
+                        <li>2014 WCS America S1 - RO16</li>
+                        <li>2014 WCS America S2 - RO32</li>
+                        <li>2014 WCS America S3 - Challenger</li>
+                        <li>Acer Team Story Cup S3 - 4th</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col col-sm-4">
+                <article>
+                    <h3>2013</h3>
+                    <ul>
+                        <li>2013 WCS America S1 - RO8</li>
+                        <li>2013 WCS America S2 - RO16</li>
+                        <li>2013 WCS America S3 - RO16</li>
+                        <li>2013 GSTL S1 - 3rd</li>
+                        <li>2013 GSTL S2 - 1st</li>
+                        <li>2013 GSTL S2 All Star - Best coach</li>
+                        <li>2013 GSTL S2 - Best coach</li>
+                        <li>Acer Team Story Cup S2 - 2nd</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col col-sm-4">
+                <article>
+                    <h3>2012</h3>
+                    <ul>
+                        <li>MLG Pro Circuit 2012 – Summer Championship - Breakout Player</li>
+                        <li>Lone Star Clash S3 - 3rd</li>
+                        <li>IPL5 Amateur Championship - 1st</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+        <div class="row cta-wrapper">
+            <div class="col-md-12">
+                <a href="http://wiki.teamliquid.net/starcraft2/CranK" class="cta">View Liquipedia page <i class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="equipment">
+    <header>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-4">
+                <h2>Hardware</h2>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <article>
+                    <ul>
+                        <li>Mouse : Logitech G9X</li>
+                        <li>Keyboard : WASD Custom Keyboard (Cherry MX Brown Switches)</li>
+                        <li>Memory : 8GB of RAM</li>
+                        <li>CPU : i7-4770k @ 3.50GHz</li>
+                    </ul>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article>
+                    <ul>
+                        <li>Graphics Card : GTX 770</li>
+                        <li>Motherboard : ASRock Z87 Extream3</li>
+                        <li>Headphone : audio-technica BPHS1</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

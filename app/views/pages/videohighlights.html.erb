@@ -1,0 +1,47 @@
+<%= render "sponsors" %>
+
+<section class="page  video-highlights-list">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Youtube reel</h1>
+                    <p class="lead">Watch my most recent video highlights. New ones are added regularly on my <a href="https://www.youtube.com/user/CranK829">YouTube channel</a>.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container video-list">
+        <% if @youtube.length > 0 %>
+            <% @youtube.each_with_index do |video, index| %>
+                <% if index % 4 === 0 %>
+                    <div class="row">
+                <% end %>
+
+                <div class="col-sm-3">
+                    <article data-mfp-src="<%= video.url %>">
+                        <img src="<%= video.thumbnail %>" alt="<%= video.title %>">
+                        <p><%= video.title %></p>
+                    </article>
+                </div>
+
+                <% if (index+1) >= @youtube.length %>
+                    <div class="col-xs-3">
+                        <a class="cta" href="https://www.youtube.com/user/CranK829">View more <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                <% end %>
+
+                <% if (index+1) % 4 === 0 || index+1 >= @youtube.length  %>
+                    </div>
+                <% end %>
+            <% end %>
+        <% else %>
+           <div class="row">
+                <div class="col-md-12">
+                    <p>No videos could be loaded.</p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</section>

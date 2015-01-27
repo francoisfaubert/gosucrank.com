@@ -1,0 +1,50 @@
+
+<!doctype html>
+<!--[if lt IE 8]> <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>CranK - Professional Starcraft Player</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href='http://fonts.googleapis.com/css?family=Archivo+Black' rel='stylesheet' type='text/css'>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="front/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+    <script data-turbolinks-trac="true" src="//www.youtube.com/player_api"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link rel="canonical" href="http://TBD" />
+    <meta name="referrer" value="origin" />
+    <meta name="description" content="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom.">
+    <meta name="keywords" content="Starcraft II, CranK, Protoss, Choi Jae Won, Axiom" />
+    <meta name="og:url" description="http://TBD" />
+    <meta name="og:site_name" description="CranK - Professional Starcraft Player" />
+    <meta name="og:type" description="website" />
+    <meta name="og:locale" description="en_CA" />
+    <meta name="og:description" description="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom." />
+    <meta name="twitter:card" description="summary" />
+    <meta name="twitter:description" description="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom." />
+</head>
+<body class="<%= action_name %>">
+    <%= render "header" %>
+    <%= yield %>
+    <%= render "footer" %>
+</body>
+</html>
+
+<script>
+   /* var _gaq=[['_setAccount','UA-11028046-9'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script')); */
+</script>
+<!--[if lt IE 7 ]>
+    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+</body>
+</html>

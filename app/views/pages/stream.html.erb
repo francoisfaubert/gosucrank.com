@@ -1,0 +1,39 @@
+<%= render "sponsors" %>
+
+<section class="page stream-details">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Twitch stream</h1>
+                    <p class="lead">I'll be streaming often on the KR/NA/EU ladder. Enjoy <a href="http://www.twitch.tv/crank/">my Stream</a>!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <div class="row">
+                <% if !@twitch.nil? %>
+                    <div class="col-md-8">
+                        <article class="<% if @twitch.is_live %>live<% end %>">
+                            <% if @twitch.is_live %>
+                                <iframe class="stream-element" src="http://www.twitch.tv/crank/embed"></iframe>
+                            <% end %>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <aside>
+                            <iframe class="stream-element" src="http://www.twitch.tv/crank/chat"></iframe>
+                        </aside>
+                    </div>
+                <% else %>
+                    <div class="col-md-12">
+                        <p>No stream data could be loaded.</p>
+                   </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

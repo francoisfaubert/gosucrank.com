@@ -1,0 +1,51 @@
+<p>Hello.</p>
+
+<section class="stream-details">
+    <header>Stream <a href="http://www.twitch.tv/crank">profile</a></header>
+    <% if !@twitch.nil? %>
+        <article class="<% if @twitch.is_live %>live<% end %>">
+            <% if @twitch.is_live %>
+                <iframe class="stream-element" src="http://www.twitch.tv/crank/embed"></iframe>
+            <% end %>
+            <span>
+                <% if @twitch.is_live %>
+                    I am live
+                <% else %>
+                    I am not current live
+                <% end %>
+            </span>
+        </article>
+        <aside>
+            <iframe class="stream-element" src="http://www.twitch.tv/crank/chat"></iframe>
+        </aside>
+    <% else %>
+       <p>No stream data could be loaded.</p>
+    <% end %>
+</section>
+
+<section class="tweet-list">
+    <header>Tweets <a href="https://twitter.com/axcrank">profile</a></header>
+    <% if @tweets.length > 0 %>
+        <% @tweets.each do |tweet| %>
+            <article>
+                <%= tweet.text %>
+            </article>
+        <% end %>
+    <% else %>
+       <p>No tweet could be loaded.</p>
+    <% end %>
+</section>
+
+<section class="videos-list">
+    <header>Youtube reel <a href="https://www.youtube.com/user/CranK829">profile</a></header>
+    <% if @youtube.length > 0 %>
+        <% @youtube.each do |video| %>
+            <article>
+                <img src="<%= video.thumbnail %>" data-video-url="<%= video.url %>">
+                <h3><%= video.title %></h3>
+            </article>
+        <% end %>
+    <% else %>
+       <p>No videos could be loaded.</p>
+    <% end %>
+</section>

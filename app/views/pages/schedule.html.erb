@@ -1,0 +1,31 @@
+<%= render "sponsors" %>
+
+<section class="page stream-schedule">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Schedule</h1>
+                    <p class="lead">I'll be streaming often on the KR/NA/EU ladder. Enjoy <a href="http://www.twitch.tv/crank/">my Stream</a>!</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container video-list">
+        <div class="row timezone-selector">
+            <div class="col-md-12">
+                <select id="schedule-timezone">
+                    <option value="https://www.google.com/calendar/embed?title=Stream%20schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;wkst=1&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=6kft18eaob7imagbb1gfca58s8%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=Etc%2FGMT" selected="selected">GMT</option>
+                    <option value="https://www.google.com/calendar/embed?title=Stream%20schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;wkst=1&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=6kft18eaob7imagbb1gfca58s8%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=America%2FNew_York">Eastern</option>
+                    <option value="https://www.google.com/calendar/embed?title=Stream%20schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;wkst=1&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=6kft18eaob7imagbb1gfca58s8%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=America%2FLos_Angeles">Pacific</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <iframe id="calendar" src="https://www.google.com/calendar/embed?title=Stream%20schedule&amp;showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;wkst=1&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=6kft18eaob7imagbb1gfca58s8%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=Etc%2FGMT"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
