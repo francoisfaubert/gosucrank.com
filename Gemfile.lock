@@ -44,6 +44,13 @@ GEM
     builder (3.2.2)
     callsite (0.0.11)
     coderay (1.1.0)
+    coffee-rails (4.0.1)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0, < 5.0)
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.8.0)
     debug_inspector (0.0.2)
     equalizer (0.0.9)
     erubis (2.7.0)
@@ -156,6 +163,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.2.0)
+  coffee-rails (~> 4.0.0)
   font-awesome-rails
   jquery-rails
   magnific-popup-rails
