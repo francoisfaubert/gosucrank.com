@@ -17,6 +17,7 @@ class PagesController < ApplicationController
     end
 
     def videohighlights
+        @twitch = TwitchStream.first
         @youtube = Youtube.limit(15).order('created_at')
     end
 
