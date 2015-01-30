@@ -17,34 +17,33 @@
     <script data-turbolinks-trac="true" src="//www.youtube.com/player_api"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <link rel="canonical" href="http://TBD" />
+    <link rel="icon" type="image/png" href="<%= image_path('favicon.png') %>" />
     <meta name="referrer" value="origin" />
     <meta name="description" content="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom.">
     <meta name="keywords" content="Starcraft II, CranK, Protoss, Choi Jae Won, Axiom" />
-    <meta name="og:url" description="http://TBD" />
-    <meta name="og:site_name" description="CranK - Professional Starcraft Player" />
-    <meta name="og:type" description="website" />
-    <meta name="og:locale" description="en_CA" />
-    <meta name="og:description" description="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom." />
-    <meta name="twitter:card" description="summary" />
-    <meta name="twitter:description" description="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom." />
+    <meta property="og:site_name" content="CranK" />
+    <meta property="og:title" content="CranK" />
+    <meta property="og:image" content="http://crank.herokuapp.com/<%= image_path('img-facebook.jpg') %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:description" content="Choi 'CranK' Jae Won is a Protoss player from South Korea, currently signed to Axiom." />
 </head>
 <body class="<%= action_name %>">
     <%= render "header" %>
     <%= yield %>
     <%= render "footer" %>
-</body>
-</html>
-
-<script>
-   /* var _gaq=[['_setAccount','UA-11028046-9'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script')); */
-</script>
-<!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-    <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-<![endif]-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-1624062-9', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!--[if lt IE 7 ]>
+        <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+        <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+    <![endif]-->
 </body>
 </html>

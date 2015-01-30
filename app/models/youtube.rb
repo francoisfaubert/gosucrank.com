@@ -21,7 +21,14 @@ class Youtube < ActiveRecord::Base
                     yt.youtube_id = video["id"]["$t"]
                     yt.title = video["title"]["$t"]
                     yt.url = video["content"]["src"]
-                    yt.thumbnail = video["media$group"]["media$thumbnail"][0]["url"]
+                    yt.yturl = video["link"][0]["href"]
+
+                    if video["media$group"]["media$thumbnail"].length > 2
+                        yt.thumbnail = video["media$group"]["media$thumbnail"][2]["url"]
+                    else
+                        yt.thumbnail = video["media$group"]["media$thumbnail"][0]["url"]
+                    end
+
                     yt.save
                 end
             end

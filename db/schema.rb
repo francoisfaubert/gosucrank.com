@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150123200757) do
+ActiveRecord::Schema.define(version: 20150130144300) do
 
   create_table "tweets", force: true do |t|
     t.string   "title"
     t.text     "text"
+    t.string   "twitter_post_id"
     t.datetime "created_at"
     t.string   "modified_at"
     t.string   "timestamps"
     t.datetime "updated_at"
-    t.string   "twitter_post_id"
   end
 
   create_table "twitch_streams", force: true do |t|
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150123200757) do
     t.string   "thumbnail"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "yturl"
   end
 
 end

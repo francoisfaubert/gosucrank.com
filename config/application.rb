@@ -5,10 +5,13 @@ require "active_record/railtie"
 require 'rails/all'
 
 if defined?(Bundler)
-  # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
-  # If you want your assets lazily compiled in production, use this line
-  #Bundler.require(:default, :assets, Rails.env)
+  if  Rails.env.production?
+    # If you precompile assets before deploying to production, use this line
+    Bundler.require(*Rails.groups(:assets => %w(development test)))
+  else
+    # If you want your assets lazily compiled in production, use this line
+    Bundler.require(:default, :assets, Rails.env)
+  end
 end
 
 # Thank you to https://github.com/uq-eresearch/miletus/blob/master/config/application.rb for this sample file
@@ -19,7 +22,6 @@ class Rails::Application::Configuration
     # There is no config file, so manufacture one
     config = {
       'test' => 'sqlite3://localhost/:memory:',
-      #'development' => ENV['DATABASE_URL'],
       'production' => ENV['DATABASE_URL']
     }
     config.each do |key, value|

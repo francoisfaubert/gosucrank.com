@@ -1,15 +1,17 @@
 <section class="hero">
     <% if @twitch.is_live %>
-        <iframe class="live-stream" src="http://www.twitch.tv/crank/embed"></iframe>
+        <iframe class="live-stream video" src="http://www.twitch.tv/crank/embed"></iframe>
     <% elsif !@youtube.nil? %>
-        <div id="hero-yt-player" data-video-url="<%= @youtube.url %>" class="bg-stream yt"></div>
+        <div id="hero-yt-player" class="highlight video" data-video-url="<%= @youtube.url %>&amp;loop=1" class="bg-stream yt"></div>
     <% end %>
 
+    <%= image_tag "mask-bottom-left.png", :class => 'mask-bottom-left' %>
+    <%= image_tag "mask-bottom-right.png", :class => 'mask-bottom-right' %>
+
     <div class="player-intro">
-        <%= image_tag("hero-crank.png") %>
+        <%= image_tag "hero-crank.png", :class => 'crank' %>
         <h1>Jaewon 'CranK' Choi</h1>
-        <h2><a href="http://www.axiomesports.com">Axiom eSports</a></h2>
-        <p>Streaming on the KR/NA/EU ladder</p>
+        <p><a href="http://axiomesports.com/"class="team">Team Axiom Esports</a> Streaming on the KR/NA/EU ladder</p>
     </div>
 
     <% if @twitch.is_live %>
@@ -18,9 +20,9 @@
         </div>
     <% elsif !@youtube.nil? %>
         <div class="status highlight">
-            Video highlight
-            <em><%= @youtube.title %></em>
-            <a class="cta" href="/videohighlights/">View recent highlights</a>
+            <div class="header">Video highlight</div>
+            <h3><a class="goto" href="<%= @youtube.yturl %>"><%= @youtube.title %></a> <a class="cta fullscreen" href="#" data-mfp-src="<%= @youtube.url %>"><i class="fa fa-expand"></i></a></h3>
+            <div class="footer"><a class="cta highlights" href="/videohighlights/">View all <i class="fa fa-arrow-right"></i></a></div>
         </div>
     <% end %>
 </section>
@@ -28,7 +30,7 @@
 <%= render "sponsors" %>
 
 <section class="donate">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-xs-6">
                 <div class="coaching">
@@ -48,11 +50,11 @@
 </section>
 
 <section class="tweet-list">
-    <header>
-        <a class="cta" href="https://twitter.com/axcrank"><i class="fa fa-twitter"></i></a>
-        <h2>Recent Tweets</h2>
-    </header>
-    <div class="container-fluid">
+    <div class="container">
+        <header>
+            <a class="cta" href="https://twitter.com/axcrank"><i class="fa fa-twitter"></i></a>
+            <h2>Tweets</h2>
+        </header>
         <% if @tweets.length > 0 %>
             <% @tweets.each_with_index do |tweet, index| %>
 
@@ -75,12 +77,12 @@
 </section>
 
 <section class="achievements">
-    <header>
-        <h2>Achievements</h2>
-    </header>
-    <div class="container-fluid">
+    <div class="container">
+        <header>
+            <h2>Achievements</h2>
+        </header>
         <div class="row">
-            <div class="col col-sm-4">
+            <div class="col first col-sm-4">
                 <article>
                     <h3>2014</h3>
                     <ul>
@@ -106,7 +108,7 @@
                     </ul>
                 </article>
             </div>
-            <div class="col col-sm-4">
+            <div class="col last col-sm-4">
                 <article>
                     <h3>2012</h3>
                     <ul>
@@ -126,14 +128,14 @@
 </section>
 
 <section class="equipment">
-    <header>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-4">
-                <h2>Hardware</h2>
+    <div class="container">
+        <header>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-4">
+                    <h2>Hardware</h2>
+                </div>
             </div>
-        </div>
-    </header>
-    <div class="container-fluid">
+        </header>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <article>

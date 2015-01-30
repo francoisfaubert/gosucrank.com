@@ -19,19 +19,23 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 body {
     background:#efefef;
+    color:#666;
     text-shadow:-1px 0 0 #fff;
 }
 
 h1, h2, h3 {
     font-family: 'Archivo Black', arial, sans-serif;
-    color:#333;
+    color:#111;
     font-weight: normal;
-    margin:0;
+    margin:0 0 .5em 0;
 }
 
+// Most of the times, the font awesome icons need to be a little bigger than the text.
+.fa {
+    font-size:150%;
+}
 
 .navbar {
     border-radius: 0;
@@ -45,6 +49,7 @@ h1, h2, h3 {
         margin-top:-2px;
     }
 
+    // The live box is present in the header only when he's broadcasting on Twitch
     .live {
         background:#fff;
         padding:5px;
@@ -64,7 +69,7 @@ h1, h2, h3 {
     border-bottom:none;
     box-shadow:0 1px 5px rgba(0,0,0,0.5);
     background:#111;
-    padding: 20px;
+    padding:20px;
     position:relative;
 
     img {

@@ -17,56 +17,106 @@
 //= require_self
 
 $(document).ready(function(){
-  // Create the video popup for youtube thumbnails
-  $('.video-highlights-list').magnificPopup({
-    delegate: 'article',
-    type: 'iframe',
-    iframe: {
-      patterns: {
-        youtube: {
-          // We need to reparse the url because we are saving direct video
-          // embed urls and not the iframe url.
-          id: function(url) {
-              var m = url.match(/^.+youtube.com\/v\/([^_]+)\?/);
-              if (m !== null) {
-                  if(m[1] !== undefined) {
-                      return m[1];
-                  }
-              }
-              return null;
-          }
-        }
-      }
-    }
-  });
 
-  $('#schedule-timezone').change(function(){
-    $('#calendar').attr('src', $(this).val());
-  });
+    // Stretch the video so it always fills the screen
+    // in a decent aspect ratio
+    if ($('.hero').length > 0) {
+        $(window).resize(resizePlayer);
+        $(window).resize();
+
+        $('.hero a.fullscreen').magnificPopup({
+            type: 'iframe',
+            iframe: {
+                patterns: {
+                    youtube: {
+                        // We need to reparse the url because we are saving direct video
+                        // embed urls and not the iframe url.
+                        id: function(url) {
+                            var m = url.match(/^.+youtube.com\/v\/([^_]+)\?/);
+                            if (m !== null) {
+                                if (m[1] !== undefined) {
+                                    return m[1];
+                                }
+                            }
+                            return null;
+                        }
+                    }
+                }
+            }
+        });
+
+    }
+
+    function resizePlayer() {
+
+        // yt ad takes up 106px at the bottom, take it into account
+        // when covering the area.
+        var boxWidth = $('.hero').width(),
+            boxHeight = $('.hero').height(),
+            marginSize = 200;
+            adjustedHeight = boxWidth  * 9 / 16;
+
+        $('.hero').height(adjustedHeight + "px");
+
+        $('.hero .video')
+            .height(adjustedHeight  + (marginSize*2))
+            .css('top', -marginSize + 'px')
+            .width(boxWidth  + ((marginSize*2) * 9 / 16))
+            .css('left', -marginSize + 'px');
+
+    }
+
+
+    // Create the video popup for youtube thumbnails
+    $('.video-highlights-list').magnificPopup({
+        delegate: 'article',
+        type: 'iframe',
+        iframe: {
+            patterns: {
+                youtube: {
+                    // We need to reparse the url because we are saving direct video
+                    // embed urls and not the iframe url.
+                    id: function(url) {
+                        var m = url.match(/^.+youtube.com\/v\/([^_]+)\?/);
+                        if (m !== null) {
+                            if (m[1] !== undefined) {
+                                return m[1];
+                            }
+                        }
+                        return null;
+                    }
+                }
+            }
+        }
+    });
+
+    // The calendar timezone switcher
+    $('#schedule-timezone').change(function(){
+        $('#calendar').attr('src', $(this).val());
+    });
 });
 
 
 window.onYouTubePlayerAPIReady = function() {
-   new YT.Player('hero-yt-player', {
-      playerVars: {
-        'autoplay': 1,
-        'autohide': 1,
-        'cc_load_policy' : 0,
-        'controls': 0,
-        'disablekb':1,
-        'fs':0,
-        'loop':1,
-        'rel' : 0,
-        'showinfo': 0,
-        'start':50
-      },
-      events: {
-        onReady : function(event) {
-            event.target.loadVideoByUrl(event.target.d.getAttribute('data-video-url'), 40);
-            event.target.playVideo();
-            event.target.mute();
+    new YT.Player('hero-yt-player', {
+        playerVars: {
+            'autoplay': 1,
+            'autohide': 1,
+            'cc_load_policy' : 0,
+            'controls': 0,
+            'disablekb':1,
+            'fs':0,
+            'loop':1,
+            'rel' : 0,
+            'showinfo': 0,
+            'start':50
+        },
+        events: {
+            onReady : function(event) {
+                event.target.loadVideoByUrl(event.target.d.getAttribute('data-video-url'), 40);
+                event.target.playVideo();
+                event.target.mute();
+            }
         }
-      }
     });
- };
-
+};
