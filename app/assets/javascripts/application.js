@@ -109,7 +109,8 @@ window.onYouTubePlayerAPIReady = function() {
             'loop':1,
             'rel' : 0,
             'showinfo': 0,
-            'start':50
+            'start':50,
+            'wmode' : 'transparent'
         },
         events: {
             onReady : function(event) {
