@@ -1,3 +1,4 @@
+
 class Youtube < ActiveRecord::Base
 
     require 'net/http'
@@ -21,7 +22,10 @@ class Youtube < ActiveRecord::Base
                     yt = Youtube.create
                     yt.youtube_id = video["id"]["$t"]
                     yt.title = video["title"]["$t"]
-                    yt.url = video["content"]["src"]
+
+                    # when the video gets embedded, the zindex is too high unless we specify
+                    # the wmode parameter. This parameter needs to be the first one.
+                    yt.url = video["content"]["src"].gsub('?version', '?wmode=transparent&version')
                     yt.yturl = video["link"][0]["href"]
 
                     if video["media$group"]["media$thumbnail"].length > 2
