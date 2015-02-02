@@ -25,7 +25,7 @@ class Youtube < ActiveRecord::Base
 
                     # when the video gets embedded, the zindex is too high unless we specify
                     # the wmode parameter. This parameter needs to be the first one.
-                    yt.url = video["content"]["src"].gsub('?version', '?wmode=transparent&version')
+                    yt.url = video["content"]["src"]
                     yt.yturl = video["link"][0]["href"]
 
                     if video["media$group"]["media$thumbnail"].length > 2
