@@ -17,8 +17,7 @@ class Youtube < ActiveRecord::Base
         def self.fetchRemoteList
             Youtube.recentvideos["feed"]["entry"].each do |video|
                 puts "    Found video ID " + video["id"]["$t"]
-		if Youtube.where(:youtube_id => video["id"]["$t"]).empty?
-		    puts "        Creating."
+		        if Youtube.where(:youtube_id => video["id"]["$t"]).empty?
                     yt = Youtube.create
                     yt.youtube_id = video["id"]["$t"]
                     yt.title = video["title"]["$t"]
@@ -32,7 +31,7 @@ class Youtube < ActiveRecord::Base
                     end
 
                     yt.save
-		    puts "        Saved."
+		            puts "        Saved."
                 end
             end
         end

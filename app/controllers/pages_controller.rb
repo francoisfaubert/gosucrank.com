@@ -7,8 +7,8 @@ class PagesController < ApplicationController
     before_filter :get_twitch
 
     def index
-        @tweets = Tweet.limit(8).order('created_at')
-        @youtube = Youtube.order('created_at').first unless @twitch.is_live
+        @tweets = Tweet.limit(8).order(id: :desc)
+        @youtube = Youtube.order('id').first unless @twitch.is_live
     end
 
     def stream
@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     end
 
     def videohighlights
-        @youtube = Youtube.limit(15).order('created_at')
+        @youtube = Youtube.limit(15).order(id: :desc)
     end
 
     def get_twitch
