@@ -13,10 +13,6 @@ body.index {
         text-shadow:1px 0 0 #000;
 
         #hero-yt-player, .live-stream  {
-            /*width:150%;
-            height:150%;
-            margin-left:-10%;
-            margin-top:-2%;*/
             height:100%;
             width:100%;
             position:absolute;
@@ -287,16 +283,18 @@ body.index {
 
 /* Video Highlights */
 body.videohighlights {
-    article {
-        cursor: pointer;
-        img {
-            width:100%;
-            margin-bottom: 1em;
-            border:1px solid #fff;
-        }
-        p {
-            font-size:1.1em;
-            text-align:center;
+    .video-highlights-list {
+        article {
+            cursor: pointer;
+            img {
+                width:100%;
+                margin-bottom: 1em;
+                border:1px solid #fff;
+            }
+            p {
+                font-size:1.1em;
+                text-align:center;
+            }
         }
     }
     .video-list {
