@@ -323,9 +323,31 @@ body.schedule {
 
 /* Stream box */
 body.stream {
-    iframe {
-        width:100%;
-        height:800px;
-        border:0;
+
+    .stream-wrapper {
+        height: 800px;
+        position: relative;
+
+        .stream-element {
+            position:absolute;
+            left:0;
+            right:300px;
+            height:100%;
+            width:100%;
+            display:block;
+            border:0;
+        }
+
+        .stream-chat {
+            position:absolute;
+            display:block;
+            right:0;
+            width:300px;
+            height:100%;
+            border:0;
+            border-left: 1px solid #999;
+        }
+
     }
+
 }

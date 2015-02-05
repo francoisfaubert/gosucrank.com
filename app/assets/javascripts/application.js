@@ -48,7 +48,6 @@ $(document).ready(function(){
     }
 
     function resizePlayer() {
-
         // yt ad takes up 106px at the bottom, take it into account
         // when covering the area.
         var boxWidth = $('.hero').width(),
@@ -63,7 +62,6 @@ $(document).ready(function(){
             .css('top', -marginSize + 'px')
             .width(boxWidth  + ((marginSize*2) * 9 / 16))
             .css('left', -marginSize + 'px');
-
     }
 
     // Create the video popup for youtube thumbnails
