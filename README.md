@@ -53,8 +53,3 @@ A Heroku Scheduler rule must be set to call `rake cron` every 10 minutes.
 ## Further updates
 
 The Heroku app will update automatically with the contents of the master branch. Be careful when merging.
-
-## TODO
-
-1. Static top menu bar
-2. Replicate Twitch theater mode on stream page 
