@@ -23,6 +23,7 @@ body {
     background:#efefef;
     color:#666;
     text-shadow:-1px 0 0 #fff;
+    margin-top:54px;
 }
 
 h1, h2, h3 {
@@ -44,6 +45,14 @@ h1, h2, h3 {
 }
 
 .navbar-default {
+
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+    top:0;
+    left:0;
+    box-shadow:0 1px 5px rgba(0,0,0,0.5);
+
     h1 {
         font-size:20px;
         margin-top:-2px;

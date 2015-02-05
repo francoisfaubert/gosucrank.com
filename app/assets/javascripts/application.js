@@ -66,7 +66,6 @@ $(document).ready(function(){
 
     }
 
-
     // Create the video popup for youtube thumbnails
     $('.video-highlights-list').magnificPopup({
         delegate: 'article',
