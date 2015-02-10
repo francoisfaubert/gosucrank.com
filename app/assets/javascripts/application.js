@@ -87,6 +87,18 @@ $(document).ready(function(){
         }
     });
 
+
+    // Fit the width of the video iframe based on the fixed with of the chat iframe.
+    if($('body.stream').length > 0) {
+        $(window).resize(resizeTwitch);
+        $(window).resize();
+
+        function resizeTwitch() {
+            $('.stream-element').width( $('.stream-wrapper').width() - $('.stream-chat').width() - 2); // - 2 creates a visual border.
+        }
+    }
+
+
     // The calendar timezone switcher
     $('#schedule-timezone').change(function(){
         $('#calendar').attr('src', $(this).val());

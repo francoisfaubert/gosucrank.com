@@ -331,7 +331,7 @@ body.stream {
         .stream-element {
             position:absolute;
             left:0;
-            right:300px;
+            top:0;
             height:100%;
             width:100%;
             display:block;
@@ -342,6 +342,7 @@ body.stream {
             position:absolute;
             display:block;
             right:0;
+            top:0;
             width:300px;
             height:100%;
             border:0;
