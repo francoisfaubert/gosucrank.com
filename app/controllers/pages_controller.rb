@@ -8,7 +8,7 @@ class PagesController < ApplicationController
 
     def index
         @tweets = Tweet.limit(8).order(id: :desc)
-        @youtube = Youtube.limit(1).order(id: :desc) unless @twitch.is_live
+        @youtube = Youtube.order(id: :desc).first unless @twitch.is_live
     end
 
     def stream
