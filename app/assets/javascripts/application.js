@@ -123,7 +123,9 @@ window.onYouTubePlayerAPIReady = function() {
         },
         events: {
             onReady : function(event) {
-                event.target.loadVideoByUrl(event.target.d.getAttribute('data-video-url'), 40);
+                //event.target.loadVideoByUrl(event.target.d.getAttribute('data-video-url'), 40);
+                var videoUrl = document.getElementById("hero-yt-player").getAttribute('data-video-url');
+                event.target.loadVideoByUrl(videoUrl);
                 event.target.playVideo();
                 event.target.mute();
             }
