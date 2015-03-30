@@ -2,7 +2,7 @@
     <% if @twitch.is_live %>
         <iframe class="live-stream video" src="http://www.twitch.tv/crank/embed"></iframe>
     <% elsif !@youtube.nil? %>
-        <div id="hero-yt-player" class="highlight video" data-video-url="<%= @youtube.url.gsub(/\?version/, '?wmode=transparent&loop=1&version').gsub(/https?:/, '//') %>" class="bg-stream yt"></div>
+        <div id="hero-yt-player" class="highlight video" data-video-url="<%= @youtube.url.gsub(/\?version/, '?wmode=transparent&loop=1&version') %>" class="bg-stream yt"></div>
     <% end %>
 
     <%= image_tag "mask-bottom-left.png", :class => 'mask-bottom-left' %>
