@@ -4,11 +4,14 @@ class Youtube < ActiveRecord::Base
     require 'net/http'
 
     USER_NICKNAME = "CranK829"
+    UPLOADS_KEY = "UUS2OAdHoLt-9T6cG9A2H49Q"
 
     protected
 
         def self.recentvideos
-            source = 'https://gdata.youtube.com/feeds/api/videos?author='+USER_NICKNAME+'&orderby=published&max-results=10&v=2&alt=json'
+            # Use this link to gain the uploads playlist id
+            #source = "https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forUsername=#{USER_NICKNAME}&key=#{ENV["Youtube_key"]}"
+            source = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=#{UPLOADS_KEY}&key=#{ENV["Youtube_key"]}"
             resp = Net::HTTP.get_response(URI.parse(source))
             JSON.parse(resp.body)
         end
@@ -16,26 +19,26 @@ class Youtube < ActiveRecord::Base
     public
 
         def self.fetchRemoteList
-            Youtube.recentvideos["feed"]["entry"].each do |video|
-                puts "    Found video ID " + video["id"]["$t"]
-		        if Youtube.where(:youtube_id => video["id"]["$t"]).empty?
+            Youtube.recentvideos["items"].each do |video|
+                puts "    Found video ID " + video["id"]
+		        if Youtube.where(:youtube_id => video["id"]).empty?
                     yt = Youtube.create
-                    yt.youtube_id = video["id"]["$t"]
-                    yt.title = video["title"]["$t"]
-
-                    # when the video gets embedded, the zindex is too high unless we specify
-                    # the wmode parameter. This parameter needs to be the first one.
-                    yt.url = video["content"]["src"]
-                    yt.yturl = video["link"][0]["href"]
-
-                    if video["media$group"]["media$thumbnail"].length > 2
-                        yt.thumbnail = video["media$group"]["media$thumbnail"][2]["url"]
-                    else
-                        yt.thumbnail = video["media$group"]["media$thumbnail"][0]["url"]
-                    end
-
+                    yt.youtube_id = video["id"]
+                    yt.title = video["snippet"]["title"]
+                    yt.url = video["snippet"]["resourceId"]["videoId"]
+                    yt.thumbnail = video["snippet"]["thumbnails"]["standard"]["url"]
                     yt.save
 		            puts "        Saved."
+                end
+            end
+        end
+
+        def get_url
+            unless url.nil?
+                if url =~ /http/i
+                    url
+                else
+                    "https://www.youtube.com/v/" + url
                 end
             end
         end

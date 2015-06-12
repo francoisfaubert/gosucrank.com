@@ -74,7 +74,7 @@ $(document).ready(function(){
                     // We need to reparse the url because we are saving direct video
                     // embed urls and not the iframe url.
                     id: function(url) {
-                        var m = url.match(/^.+youtube.com\/v\/([^_]+)\?/);
+                        var m = url.match(/^.+youtube.com\/v\/(.+)?/);
                         if (m !== null) {
                             if (m[1] !== undefined) {
                                 return m[1];

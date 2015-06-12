@@ -40,6 +40,7 @@ heroku config:add TWITTER_CONSUMER_KEY=token
 heroku config:add TWITTER_CONSUMER_SECRET=token
 heroku config:add TWITTER_ACCESS_TOKEN=token
 heroku config:add TWITTER_ACCESS_SECRET=token
+heroku config:add Youtube_key=key
 ~~~
 
 After first deploy, one must create the tables manually.
